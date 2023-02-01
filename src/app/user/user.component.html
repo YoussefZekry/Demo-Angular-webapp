@@ -1,1 +1,6 @@
-<p>user works!</p>
+<input #inputFirstName type="text" placeholder="First Name" >
+<input #inputLastName type="text" placeholder="Last Name" >
+<input #inputAge type="number" placeholder="Age" >
+
+<button (click)="AddUserValidation(inputFirstName.value,inputLastName.value,inputAge.value)">Add</button>
+<h1>You added {{users.length}} Users</h1>
