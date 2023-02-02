@@ -17,17 +17,23 @@ export class UserComponent {
       user.firstName = newFirstName;
       user.lastName = newLastName;
       user.age = parseInt(newAge);
-      this.users.push(user);
-      console.log(this.users)
-   
-    // if (
+      let isDuplicate= false;
+      
+      this.users.forEach(element => {
+        if (element.firstName===user.firstName && element.lastName===user.lastName && element.age===user.age) {
+          isDuplicate = true;
+          console.log("duplicate");
+          alert("User Already Exists")
+         }
+      });
 
-
-    // )
-    //   return false;
-
-    // else return true;
+      if(isDuplicate) 
+        return;
+      else{
+        console.log("not duplicate"); 
+        this.users.push(user);
+        console.log(this.users)
+      }
   }
 
-  
 }
