@@ -11,29 +11,37 @@ export class UserComponent {
 
 
 
-  AddUserValidation(newFirstName: string ,newLastName: string,newAge:string): void{
+  AddUserValidation(newFirstName: string ,newLastName: string,newAge:number): void{
 
      let user = new User();
       user.firstName = newFirstName;
       user.lastName = newLastName;
-      user.age = parseInt(newAge);
-      let isDuplicate= false;
+      user.age = newAge;
+      let isDuplicateFlag= false;
       
+  
       this.users.forEach(element => {
         if (element.firstName===user.firstName && element.lastName===user.lastName && element.age===user.age) {
-          isDuplicate = true;
+          isDuplicateFlag = true;
           console.log("duplicate");
           alert("User Already Exists")
          }
       });
 
-      if(isDuplicate) 
+      if(isDuplicateFlag) 
         return;
       else{
         console.log("not duplicate"); 
         this.users.push(user);
         console.log(this.users)
       }
+      
+    // }
+  }
+  
+  delete(index:number):void
+  {
+   this.users.splice(index,1);
   }
 
 }

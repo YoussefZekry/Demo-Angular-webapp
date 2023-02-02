@@ -1,6 +1,25 @@
-<input #inputFirstName type="text" placeholder="First Name" >
-<input #inputLastName type="text" placeholder="Last Name" >
-<input #inputAge type="number" placeholder="Age" >
+<input #inputFirstName type="text" placeholder="First Name" required>
+<input #inputLastName type="text" placeholder="Last Name" required>
+<input #inputAge type="number" placeholder="Age" required>
 
-<button (click)="AddUserValidation(inputFirstName.value,inputLastName.value,inputAge.value)">Add</button>
+<button type="button"(click)= "AddUserValidation(inputFirstName.value,inputLastName.value,+inputAge.value); inputFirstName.value=''; inputLastName.value='';  inputAge.value='';">Add</button>
 <h1>You added {{users.length}} Users</h1>
+
+
+<table>
+    <tr>
+        <td>#</td>
+        <td>Full Name</td>
+        <td>Age</td>
+        <td>Action</td>
+    </tr>
+    <tr *ngFor="let item of users;let currentIndex=index">
+        <td>{{currentIndex+1}}</td>
+        <td [class.redColor]="item.age>30">{{item.firstName.concat(" "+item.lastName)}}</td>
+        <td> <input type="number" [(ngModel)]="item.age"></td>
+        <td>
+            <button (click)="delete(currentIndex)">DELETE</button>
+        </td>
+    </tr>
+   
+</table>
