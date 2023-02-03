@@ -1,4 +1,4 @@
-export class User{
+export class Student{
 	firstName:string = "youssef";
 	lastName:string = "zekry";
 	age:number = 26;
