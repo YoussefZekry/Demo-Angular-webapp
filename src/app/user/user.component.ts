@@ -8,40 +8,48 @@ import { User } from '../models/user';
 })
 export class UserComponent {
   users: User[] = [];
-
-
-
-  AddUserValidation(newFirstName: string ,newLastName: string,newAge:number): void{
-
-     let user = new User();
-      user.firstName = newFirstName;
-      user.lastName = newLastName;
-      user.age = newAge;
-      let isDuplicateFlag= false;
-      
   
-      this.users.forEach(element => {
-        if (element.firstName===user.firstName && element.lastName===user.lastName && element.age===user.age) {
-          isDuplicateFlag = true;
-          console.log("duplicate");
-          alert("User Already Exists")
-         }
-      });
+  add(newFirstName: string ,newLastName: string,newAge:number): void{
 
-      if(isDuplicateFlag) 
-        return;
-      else{
-        console.log("not duplicate"); 
-        this.users.push(user);
-        console.log(this.users)
+    let user = new User(newFirstName,newLastName,newAge);
+    if(this.isDuplicate(user))
+      alert("User Already Exists")
+    else
+    this.users.push(user);
+  }
+
+
+  isDuplicate(user:User): boolean{
+    // let isDuplicateFlag =true;
+    // this.users.forEach(element => {
+    for (let i = 0; i < this.users.length; i++) {
+      if (this.users[i].firstName===user.firstName && this.users[i].lastName===user.lastName && this.users[i].age===user.age) {
+        console.log("duplicate");
+        return true;
+        }
       }
-      
-    // }
+      // });
+        console.log("not duplicate"); 
+        return false;
   }
   
+  // sayed(newFirstName: string ,newLastName: string,newAge:number){
+  //   let user = new User(newFirstName,newLastName,newAge);
+  
+  //   console.log("duplicate");
+  //     return this.users.some(function(e){
+  //       return e.firstName===user.firstName && e.lastName===user.lastName && e.age===user.age;
+  //     },user);
+      
+  // }
+
+
   delete(index:number):void
   {
    this.users.splice(index,1);
   }
+  // sort():void{
+
+  // }
 
 }

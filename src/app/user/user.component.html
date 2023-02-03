@@ -2,7 +2,7 @@
 <input #inputLastName type="text" placeholder="Last Name" required>
 <input #inputAge type="number" placeholder="Age" required>
 
-<button type="button"(click)= "AddUserValidation(inputFirstName.value,inputLastName.value,+inputAge.value); inputFirstName.value=''; inputLastName.value='';  inputAge.value='';">Add</button>
+<button type="button"(click)= "add(inputFirstName.value,inputLastName.value,+inputAge.value); inputFirstName.value=''; inputLastName.value='';  inputAge.value='';">Add</button>
 <h1>You added {{users.length}} Users</h1>
 
 
