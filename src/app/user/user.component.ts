@@ -16,6 +16,7 @@ export class UserComponent {
       alert("User Already Exists")
     else
     this.users.push(user);
+    this.sort();
   }
 
 
@@ -48,8 +49,8 @@ export class UserComponent {
   {
    this.users.splice(index,1);
   }
-  // sort():void{
-
-  // }
+  sort():void{
+    this.users.sort((e1,e2)=>e1.age-e2.age);
+  }
 
 }
