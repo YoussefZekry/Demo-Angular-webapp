@@ -11,8 +11,7 @@
             <div class="col-md-9"><input #inputNationalID placeholder="NationalID"   type="text" class="form-control"></div>
             <div class="col-md-9"><input #inputAge placeholder="Age"   type="number" class="form-control"></div>
             <div class="col-md-3">
-                <button type="button" (click)="add(inputFirstName.value,inputLastName.value,inputMobile.value,inputEmail.value,inputNationalID.value,+inputAge.value); inputFirstName.value='';inputLastName.value=''; inputMobile.value=''; inputEmail.value=''; inputNationalID.value='';  inputAge.value='';"  class="btn btn-primary">Add</button>
-                
+                <button type="button" (click)="add(inputFirstName.value,inputLastName.value,inputMobile.value,inputEmail.value,inputNationalID.value,+inputAge.value); inputFirstName.value='';inputLastName.value=''; inputMobile.value=''; inputEmail.value=''; inputNationalID.value='';  inputAge.value='';"  class="btn btn-primary">Add</button>    
             </div>
         </div>
         <div class="row">
@@ -32,25 +31,19 @@
                 <tbody>
                   <tr *ngFor="let item of students;let currentIndex=index">
                     <th scope="row">{{currentIndex+1}}</th>
-                    <td>{{item.Name}}</td>
+                    <td>
+                      <a routerLink="/studentdetails/{{item.ID}}">
+                        {{item.Name}}
+                      </a>
+                    </td>
                     <td>{{item.Mobile}}</td>
                     <td>{{item.Email}}</td>
                     <td>{{item.NationalID}}</td>
                     <td>{{item.Age}}</td>
-                      <!-- <td>
-                        1-1-2000
-                      </td> -->
-                    <!-- <td> <input  type="checkbox" (change)="update(item)" [checked]="item.IsDone" > </td> -->
-                    <td> 
+                     <td> 
                         <button type="button" (click)="delete(currentIndex)" class="btn btn-danger">Delete</button>
                     </td>
-                  </tr>
-                  <!-- <tr  >
-                      <td colspan="3">No tasks found</td>
-                  </tr>
-                  <tr  >
-                    <td colspan="3">Loading...........</td>
-                </tr> -->
+                  </tr>              
                 </tbody>
               </table>
         </div>
