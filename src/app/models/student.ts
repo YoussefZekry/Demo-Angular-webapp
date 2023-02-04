@@ -1,12 +1,26 @@
 export class Student{
-	firstName:string = "youssef";
-	lastName:string = "zekry";
-	age:number = 26;
+	NameArabic:string ="";
+	NameEnglish:string ="";
+	ID:number = 0;
+	FirstName:string = "";
+	LastName:string = "";
+	Mobile:string = "";
+	Email:string = "";
+	NationalID:string = "";
+	Age:number = 0;
+	Name:string = "";
+	
 
-	constructor(firstName :string,lastName: string,age: number)
+	constructor(FirstName: string,LastName:string,Mobile:string,Email:string,NationalID:string,Age: number,NameArabic?:string)
 	{
-		this.firstName=firstName;
-		this.lastName=lastName;
-		this.age=age;
+		this.FirstName=FirstName;
+		this.LastName = LastName;
+		this.Mobile = Mobile;
+		this.Email = Email;
+		this.NationalID = NationalID;
+		this.Age=Age;
+		this.Name=FirstName+LastName;
+		this.NameEnglish = this.Name;
 	}
+
 }

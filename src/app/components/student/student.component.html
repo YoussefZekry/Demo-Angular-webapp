@@ -4,33 +4,39 @@
             <p>You added {{students.length}} Students</p>
         </div>
         <div class="row">
-            <div class="col-md-9"><input #inputFirstName placeholder="First Name"   type="text" class="form-control"></div>
-            <div class="col-md-9"><input #inputLastName placeholder="Last Name"    type="text" class="form-control"></div>
+            <div class="col-md-9"><input #inputFirstName placeholder="FirstName"   type="text" class="form-control"></div>
+            <div class="col-md-9"><input #inputLastName placeholder="LastName"   type="text" class="form-control"></div>
+            <div class="col-md-9"><input #inputMobile placeholder="Mobile"   type="text" class="form-control"></div>
+            <div class="col-md-9"><input #inputEmail placeholder="Email"   type="text" class="form-control"></div>
+            <div class="col-md-9"><input #inputNationalID placeholder="NationalID"   type="text" class="form-control"></div>
             <div class="col-md-9"><input #inputAge placeholder="Age"   type="number" class="form-control"></div>
-
             <div class="col-md-3">
-                <button type="button" (click)="add(inputFirstName.value,inputLastName.value,+inputAge.value); inputFirstName.value=''; inputLastName.value='';  inputAge.value='';"  class="btn btn-primary">Add</button>
+                <button type="button" (click)="add(inputFirstName.value,inputLastName.value,inputMobile.value,inputEmail.value,inputNationalID.value,+inputAge.value); inputFirstName.value='';inputLastName.value=''; inputMobile.value=''; inputEmail.value=''; inputNationalID.value='';  inputAge.value='';"  class="btn btn-primary">Add</button>
+                
             </div>
         </div>
         <div class="row">
             <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">Student</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">NationalID</th>
+                    <th scope="col">Age</th>
                     <!-- <th scope="col">Date</th> -->
-
                     <th scope="col">Delete</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let item of students;let currentIndex=index">
                     <th scope="row">{{currentIndex+1}}</th>
-                    <td>
-                    <!-- {{item.}} -->
-
-                    {{item.firstName.concat(" "+item.lastName)}}
-                      </td>
+                    <td>{{item.Name}}</td>
+                    <td>{{item.Mobile}}</td>
+                    <td>{{item.Email}}</td>
+                    <td>{{item.NationalID}}</td>
+                    <td>{{item.Age}}</td>
                       <!-- <td>
                         1-1-2000
                       </td> -->
